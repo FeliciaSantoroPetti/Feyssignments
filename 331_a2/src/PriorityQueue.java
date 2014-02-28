@@ -14,17 +14,18 @@ public class PriorityQueue {
   
   public int size()
   {
-    
+    return m_Heap.GetSize();
   }
   
   public boolean isEmpty()
   {
+    return m_Heap.GetSize() < 1;
     
   }
   
   public void insert(int Key, String Element)
   {
-    
+    m_Heap.AddElement(Key,Element);
   }
   
   public Node getMax()
