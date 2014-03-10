@@ -20,22 +20,4 @@ public class Scenario {
 	}
 	
 	
-	public static void testUnderflow()
-	{
-		
-	}
-	
-	public static void testEmpty()
-	{
-		
-	}
-	
-	public static void testSuccessful()
-	{
-		
-	}
-	
-	
-	
-	
 }
