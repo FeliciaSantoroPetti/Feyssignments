@@ -1,5 +1,5 @@
-import java.io.Console;
 import java.util.Random;
+
 
 public class Scenario {
 	
@@ -7,14 +7,17 @@ public class Scenario {
 	{
 		Heap h = new Heap();
 		Random l_rand = new Random();
-		for(int i = 0; i < 10; ++i)
-		{
-		h.AddElement(l_rand.nextInt(100),"a");
+		for(int i = 0; i < 10; ++i){
+			h.addElement(l_rand.nextInt(100),"a");
 		}
 		
-		System.out.print(h.RemoveMaxNode().GetWeight());
-		
+		System.out.print(h.removeMaxNode().getWeight());
+		h.addElement(100, "lol");
+	
+		System.out.print(h.contains(1, "sfasf"));
+		h.printHeapContent();
 	
 	}
+	
 	
 }
