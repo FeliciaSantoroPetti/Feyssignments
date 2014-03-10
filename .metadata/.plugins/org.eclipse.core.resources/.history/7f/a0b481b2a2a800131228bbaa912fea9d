@@ -112,13 +112,9 @@ public class Heap {
 				if(leftChildNode == null)
 					return;
 				//only left child exists
-				if(rightChildNode == null)
-					{
-					if(currentNode.getWeight() < leftChildNode.getWeight()) {
+				if(rightChildNode == null && currentNode.getWeight() < leftChildNode.getWeight()) {
 					swapNode(parentIndex, leftChildIndex);
 					return;
-					}
-					else return;
 				}
 				
 				//left child is biggest

@@ -63,7 +63,7 @@ public class Scenario {
 		
 		sc.testSuccessful();
 		
-		//sc.testUnderflow();
+		sc.testUnderflow();
 	
 	}
 	
