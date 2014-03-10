@@ -166,10 +166,4 @@ public class Heap {
 			nodeDA.set(nodeIndex2, temp);
 		}
 	}
-	
-	public void ResetHeap()
-	{
-		this.nodeDA.clear();
-		
-	}
 }
