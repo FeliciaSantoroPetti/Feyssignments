@@ -5,21 +5,23 @@ import be.ac.ua.ansymo.adbc.annotations.requires;
 @invariant ({
 	"$this.heap.getSize() >= 0"
 })
-// missing the case to guarantee that the least element is at the root.
-
+/**
+ */
 public class PriorityQueue {
 
-	private Heap heap;
+	public Heap heap;
+	public int capacity;
 
 	/**
 	 * Default constructor which instantiates a binary heap object.
 	 */
-	@requires ({"true"})
+	@requires ({"capacity >= 3"})
 	@ensures ({
 		"$this.heap != null"
 	})
-	public PriorityQueue() {
+	public PriorityQueue(int capacity) {
 		heap = new Heap();
+		this.capacity = capacity;
 	}
 
 	/**
@@ -39,7 +41,7 @@ public class PriorityQueue {
 	 * 
 	 * @return	True if size is 0, else false.
 	 */
-	@requires ({"#this.heap.getSize >= 0"})
+	@requires ({"$this.heap.getSize() >= 0"})
 	@ensures ({"true"})
 	public boolean isEmpty() {
 		return heap.getSize() == 0;
@@ -51,8 +53,9 @@ public class PriorityQueue {
 	 * @param	key		The priority of the element to be added to the priority queue.
 	 * @param 	element	The String object to be added to the priority queue.
 	 */
-	@requires ({ "key != null",
-				"element != null"
+	@requires ({ "key >= 0",
+				"element != null",
+				"$this.heap.getSize()+1 <= $this.capacity"
 	})
 	@ensures ({ "$this.heap.contains(key, element)",
 			"$this.heap.getSize() == $old($this.heap.getSize()) + 1"
@@ -73,6 +76,7 @@ public class PriorityQueue {
 	})
 	public Node getMax() {
 		Node result = heap.getMaxNode();
+		assert result != null;
 		return result;
 	}
 
@@ -90,6 +94,7 @@ public class PriorityQueue {
 	public Node remove() {
 		Node result = heap.getMaxNode(); 
 		heap.removeMaxNode();
+		assert result != null;
 		return result; 
 	}
 } 
